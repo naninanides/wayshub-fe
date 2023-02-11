@@ -74,20 +74,7 @@ pipeline {
                 }
             }
         }
-        
-        stage('push image ke dockerhub') {
-            steps {
-                sshagent([credential]){
-                    sh"""
-                    ssh -o StrictHostKeyChecking=no ${server} << EOF
-                    cd ${directory}
-                    docker image push ${docker_image}:latest
-                    exit
-                    EOF"""
-                }
-            }
-        }
-    }
+
 
     post {
 
