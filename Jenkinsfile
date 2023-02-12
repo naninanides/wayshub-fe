@@ -71,6 +71,10 @@ pipeline {
                     exit
                     EOF
                     """
+                }
+            }
+        }
+
         stage('push kedalam docker hub'){
             steps {
                 sshagent([credential]){
@@ -82,6 +86,7 @@ pipeline {
                 }
             }
         }
+        
     }
 
     post {
