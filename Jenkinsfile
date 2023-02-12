@@ -79,7 +79,6 @@ pipeline {
             steps {
                 sshagent([credential]){
                     sh"""ssh -o StrictHostKeyChecking=no ${server} << EOF
-                    cd ${directory}
                     docker image push ${docker_images}:latest
                     exit
                     EOF"""
