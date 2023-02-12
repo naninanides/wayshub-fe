@@ -82,7 +82,6 @@ pipeline {
                     cd ${directory}
                     docker login -u "naninanides" -p "b4ihaqi90"
                     docker push ${docker_images}:latest
-                    exit
                     EOF"""
                 }
             }
