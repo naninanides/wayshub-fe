@@ -20,7 +20,7 @@ pipeline {
 
         stage('Notif nih BOS') {
             steps {
-                discordSend description: 'mulai proses', footer: '', image: '', link: '', result: '', scmWebUrl: '', thumbnail: '', title: 'Notif Frontend jalan', webhookURL: 'https://discord.com/api/webhooks/1073903280893202502/FwVTY2tdIp9qekgj3qLn-ta-PuBst9FRg3lqmqFyu0yG_3dYFs5mB7SRCVBFiQACf4ua'
+                discordSend description: 'Mulai berjalan nih boss', footer: '', image: '', link: '', result: '', scmWebUrl: '', thumbnail: '', title: 'Notif nih cuy', webhookURL: 'https://discord.com/api/webhooks/1073903280893202502/FwVTY2tdIp9qekgj3qLn-ta-PuBst9FRg3lqmqFyu0yG_3dYFs5mB7SRCVBFiQACf4ua'
             }
         }
 
