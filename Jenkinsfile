@@ -78,8 +78,8 @@ pipeline {
         stage('push kedalam docker hub'){
             steps {
                 sshagent([credential]){
-                    sh"""ssh -o StrictHostKeyChecking=no ${server} << EOF
-                    docker image push ${docker_images}:latest
+                    sh """ssh -o StrictHostKeyChecking=no ${server} << EOF
+                    docker push ${docker_images}:latest
                     exit
                     EOF"""
                 }
