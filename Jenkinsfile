@@ -7,7 +7,7 @@ pipeline {
         def directory = "~/wayshub-fe"
         def credential = 'bhq'
         def server = 'baihaqisalmon@34.87.178.39'
-        def docker_image = 'wayshub-fe'
+        def docker_image = 'naninanides/wayshub-fe'
         def nama_container = 'frontend'
     }
 
@@ -71,10 +71,17 @@ pipeline {
                     exit
                     EOF
                     """
+        stage('push kedalam docker hub'){
+            steps {
+                sshagent([credential]){
+                    sh"""ssh -o StrictHostKeyChecking=no ${server} << EOF
+                    cd ${directory}
+                    docker image push ${docker_images}:latest
+                    exit
+                    EOF"""
                 }
             }
         }
-        
     }
 
     post {
