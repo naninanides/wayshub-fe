@@ -73,20 +73,7 @@ pipeline {
                     """
                 }
             }
-        }
-
-        stage('push kedalam docker hub'){
-            steps {
-                sshagent([credential]){
-                    sh """ssh -o StrictHostKeyChecking=no ${server} << EOF
-                    cd ${directory}
-                    docker login -u "naninanides" -p "b4ihaqi90"
-                    docker push ${docker_images}:latest
-                    EOF"""
-                }
-            }
-        }
-        
+        }        
     }
 
     post {
