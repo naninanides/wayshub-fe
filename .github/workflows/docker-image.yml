@@ -21,7 +21,7 @@ jobs:
 
     - name: Build Docker Image
       run: |
-        docker build -t naninanides/bebas:latest
+        docker build -t naninanides/bebas:latest .
 
     - name: Deploy with Docker Compose
       run: |
