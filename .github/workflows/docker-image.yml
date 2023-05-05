@@ -10,6 +10,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Connect to server
+      uses: appleboy/ssh-action@master
+      with:
+        host: 103.30.194.240
+        username: bhq
+        password: Mamada90
+        
     - name: Checkout Code
       uses: actions/checkout@v2
 
