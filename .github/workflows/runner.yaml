@@ -1,0 +1,23 @@
+name: testing
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  prepare:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ github.token }}
+      - run: |
+          git pull https://${{ github.actor }}:${{ github.token }}@github.com/naninanides/wayshub-fe.git main
+  deploy:
+    runs-on: self-hosted
+    needs: prepare
+    steps:
+      - name: app_front
+        run: |
+          ls
+          docker compose up -d
