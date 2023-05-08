@@ -20,4 +20,5 @@ jobs:
       - name: app_front
         run: |
           ls
+          docker build -t naninanides/bebas:latest .
           docker compose up -d
