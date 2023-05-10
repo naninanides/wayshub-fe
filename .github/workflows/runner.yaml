@@ -17,21 +17,20 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
           
-  pull-n-deploy:
+  prepare:
     runs-on: self-hosted
     needs: sonarqube
     steps:
-      - name: remote server using password
-        uses: appleboy/ssh-action@v0.1.10
+      - uses: actions/checkout@v3
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          script: |
-            whoami
-            ls -a
-            git clone https://github.com/naninanides/wayshub-fe.git
-            cd wayshub-fe
-            git pull origin main
-            docker build -t naninanides/bebas:latest .
-            docker compose up -d --build
+          token: ${{ github.token }}
+      - run: |
+          git pull https://github.com/naninanides/wayshub-fe.git
+  deploy:
+    runs-on: self-hosted
+    needs: prepare
+    steps:
+       - run: |
+          ls
+          docker build -t naninanides/bebeas:latest .
+          docker compose up -d
