@@ -17,7 +17,6 @@ jobs:
           script: |
             whoami
             ls -a
-            git clone https://${{ github.actor }}:${{ github.token }}@github.com/naninanides/wayshub-fe.git
             cd wayshub-fe
-            docker build -t naninanides/bebas:latest .
+            git pull origin main
             docker compose up -d --build
