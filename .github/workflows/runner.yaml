@@ -9,10 +9,10 @@ jobs:
     name: sonarqube-scan
     runs-on: self-hosted
     steps:
-      - name: Checkout source Code
-        uses: actions/checkout@v3
-      - name: sonarqube scan
-        uses: sonarsource/sonarqube-scan-action@master
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: sonarsource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN}}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST}}
