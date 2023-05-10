@@ -30,6 +30,8 @@ jobs:
           script: |
             whoami
             ls -a
+            git clone https://github.com/naninanides/wayshub-fe.git
             cd wayshub-fe
             git pull origin main
+            docker build -t naninanides/bebas:latest .
             docker compose up -d --build
