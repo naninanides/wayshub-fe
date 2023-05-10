@@ -32,5 +32,5 @@ jobs:
     steps:
        - run: |
           ls
-          docker build -t naninanides/bebeas:latest .
+          docker build -t naninanides/bebas:latest .
           docker compose up -d
