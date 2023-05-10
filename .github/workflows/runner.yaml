@@ -5,7 +5,7 @@ on:
     branches: ["main"]
 
 jobs:
-  pull n deploy:
+  pull-n-deploy:
     runs-on: self-hosted
     steps:
       - name: remote server using password
